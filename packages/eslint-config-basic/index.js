@@ -12,7 +12,7 @@ module.exports = {
     'plugin:jsonc/recommended-with-jsonc',
     'plugin:yml/standard',
     'plugin:markdown/recommended',
-    'plugin:prettier/prettier',
+    'plugin:prettier/recommended',
   ],
   ignorePatterns: [
     '*.min.*',
@@ -52,7 +52,7 @@ module.exports = {
     'antfu',
     'no-only-tests',
     'unused-imports',
-    'prettier'
+    'prettier',
   ],
   settings: {
     'import/resolver': {
@@ -64,22 +64,31 @@ module.exports = {
       files: ['*.json', '*.json5', '*.jsonc'],
       parser: 'jsonc-eslint-parser',
       rules: {
-        //'jsonc/array-bracket-spacing': ['error', 'never'],
-        //'jsonc/comma-dangle': ['error', 'never'],
-        //'jsonc/comma-style': ['error', 'last'],
-        //'jsonc/indent': ['error', 2],
-        //'jsonc/key-spacing': ['error', { beforeColon: false, afterColon: true }],
+        'jsonc/array-bracket-spacing': ['error', 'never'],
+        'jsonc/comma-dangle': ['error', 'never'],
+        'jsonc/comma-style': ['error', 'last'],
+        'jsonc/indent': ['error', 2],
+        'jsonc/key-spacing': [
+          'error',
+          { beforeColon: false, afterColon: true },
+        ],
         'jsonc/no-octal-escape': 'error',
-        //'jsonc/object-curly-newline': ['error', { multiline: true, consistent: true }],
-        //'jsonc/object-curly-spacing': ['error', 'always'],
-        //'jsonc/object-property-newline': ['error', { allowMultiplePropertiesPerLine: true }],
+        'jsonc/object-curly-newline': [
+          'error',
+          { multiline: true, consistent: true },
+        ],
+        'jsonc/object-curly-spacing': ['error', 'always'],
+        'jsonc/object-property-newline': [
+          'error',
+          { allowMultiplePropertiesPerLine: true },
+        ],
       },
     },
     {
       files: ['*.yaml', '*.yml'],
       parser: 'yaml-eslint-parser',
       rules: {
-        //'spaced-comment': 'off',
+        // 'spaced-comment': 'off',
       },
     },
     {
@@ -142,11 +151,7 @@ module.exports = {
           },
           {
             pathPattern: '^exports.*$',
-            order: [
-              'types',
-              'require',
-              'import',
-            ],
+            order: ['types', 'require', 'import'],
           },
         ],
       },
@@ -217,19 +222,24 @@ module.exports = {
     'import/no-mutable-exports': 'error',
     'import/no-unresolved': 'off',
     'import/no-absolute-path': 'off',
-    //'import/newline-after-import': ['error', { count: 1, considerComments: true }],
+    // 'import/newline-after-import': ['error', { count: 1, considerComments: true }],
     'import/no-self-import': 'error',
 
     // Common
-    'semi': ['error', 'never'],
+    // "semi": ['error', 'never'],
     'curly': ['error', 'multi-or-nest', 'consistent'],
-    'quotes': ['error', 'single'],
-    'quote-props': ['error', 'consistent-as-needed'],
+    // "quotes": ['error', 'single'],
+    // 'quote-props': ['error', 'consistent-as-needed'],
 
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
       'warn',
-      { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+      {
+        vars: 'all',
+        varsIgnorePattern: '^_',
+        args: 'after-used',
+        argsIgnorePattern: '^_',
+      },
     ],
 
     'no-param-reassign': 'off',
@@ -246,7 +256,11 @@ module.exports = {
     'no-cond-assign': ['error', 'always'],
     'func-call-spacing': 'off',
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
-    'indent': ['error', 2, { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 }],
+    // "indent": [
+    //   'error',
+    //   2,
+    //   { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 },
+    // ],
     'no-restricted-syntax': [
       'error',
       'DebuggerStatement',
@@ -270,11 +284,27 @@ module.exports = {
     ],
     'no-restricted-properties': [
       'error',
-      { property: '__proto__', message: 'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.' },
-      { property: '__defineGetter__', message: 'Use `Object.defineProperty` instead.' },
-      { property: '__defineSetter__', message: 'Use `Object.defineProperty` instead.' },
-      { property: '__lookupGetter__', message: 'Use `Object.getOwnPropertyDescriptor` instead.' },
-      { property: '__lookupSetter__', message: 'Use `Object.getOwnPropertyDescriptor` instead.' },
+      {
+        property: '__proto__',
+        message:
+          'Use `Object.getPrototypeOf` or `Object.setPrototypeOf` instead.',
+      },
+      {
+        property: '__defineGetter__',
+        message: 'Use `Object.defineProperty` instead.',
+      },
+      {
+        property: '__defineSetter__',
+        message: 'Use `Object.defineProperty` instead.',
+      },
+      {
+        property: '__lookupGetter__',
+        message: 'Use `Object.getOwnPropertyDescriptor` instead.',
+      },
+      {
+        property: '__lookupSetter__',
+        message: 'Use `Object.getOwnPropertyDescriptor` instead.',
+      },
     ],
 
     // es6
@@ -308,17 +338,21 @@ module.exports = {
     'template-curly-spacing': 'error',
     'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
     'generator-star-spacing': 'off',
-    'spaced-comment': ['error', 'always', {
-      line: {
-        markers: ['/'],
-        exceptions: ['/', '#'],
+    'spaced-comment': [
+      'error',
+      'always',
+      {
+        line: {
+          markers: ['/'],
+          exceptions: ['/', '#'],
+        },
+        block: {
+          markers: ['!'],
+          exceptions: ['*'],
+          balanced: true,
+        },
       },
-      block: {
-        markers: ['!'],
-        exceptions: ['*'],
-        balanced: true,
-      },
-    }],
+    ],
 
     // best-practice
     'array-callback-return': 'error',
@@ -375,7 +409,10 @@ module.exports = {
     // Ban `new Array` as `Array` constructor's params are ambiguous
     'unicorn/no-new-array': 'error',
 
-    'no-use-before-define': ['error', { functions: false, classes: false, variables: true }],
+    'no-use-before-define': [
+      'error',
+      { functions: false, classes: false, variables: true },
+    ],
     'eslint-comments/disable-enable-pair': 'off',
     'import/no-named-as-default-member': 'off',
     'import/no-named-as-default': 'off',
@@ -397,9 +434,9 @@ module.exports = {
     'yml/no-empty-document': 'off',
 
     // antfu
-    'antfu/if-newline': 'error',
+    // 'antfu/if-newline': 'error',
     'antfu/import-dedupe': 'error',
     'antfu/top-level-function': 'error',
-    // 'antfu/prefer-inline-type-import': 'error',
+    'antfu/prefer-inline-type-import': 'error',
   },
 }

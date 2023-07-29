@@ -10,13 +10,12 @@
     "test": "pnpm -r run test",
     "build": "pnpm -r run build",
     "prepare": "pnpm -r run stub",
-    "release": "bumpp -r && pnpm -r publish"
-  },
-  "dependencies": {
-    "eslint-plugin-antfu": "^0.39.8"
+    "release": "bumpp -r && pnpm run publish",
+    "publish": "pnpm -r publish --filter=!@louishaftmann/eslint-config-monorepo --no-git-checks --access public"
   },
   "devDependencies": {
     "@louishaftmann/eslint-config": "workspace:*",
+    "@louishaftmann/prettier-config": "workspace:*",
     "bumpp": "^9.1.1",
     "eslint": "^8.45.0",
     "rimraf": "^5.0.1",

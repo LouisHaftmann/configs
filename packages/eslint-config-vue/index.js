@@ -2,8 +2,11 @@ const { isPackageExists } = require('local-pkg')
 
 const TS = isPackageExists('typescript')
 
-if (!TS)
-  console.warn('[@louishaftmann/eslint-config] TypeScript is not installed, fallback to JS only.')
+if (!TS) {
+  console.warn(
+    '[@louishaftmann/eslint-config] TypeScript is not installed, fallback to JS only.',
+  )
+}
 
 module.exports = {
   overrides: [
@@ -16,9 +19,7 @@ module.exports = {
       rules: {
         'no-unused-vars': 'off',
         'no-undef': 'off',
-        ...(TS
-          ? { '@typescript-eslint/no-unused-vars': 'off' }
-          : null),
+        ...(TS ? { '@typescript-eslint/no-unused-vars': 'off' } : null),
       },
     },
   ],
@@ -41,22 +42,35 @@ module.exports = {
     // reactivity transform
     'vue/no-setup-props-destructure': 'off',
 
-    'vue/component-tags-order': ['error', {
-      order: ['script', 'template', 'style'],
-    }],
-    'vue/block-tag-newline': ['error', {
-      singleline: 'always',
-      multiline: 'always',
-    }],
+    'vue/component-tags-order': [
+      'error',
+      {
+        order: ['script', 'template', 'style'],
+      },
+    ],
+    'vue/block-tag-newline': [
+      'error',
+      {
+        singleline: 'always',
+        multiline: 'always',
+      },
+    ],
     'vue/component-name-in-template-casing': ['error', 'PascalCase'],
     'vue/component-options-name-casing': ['error', 'PascalCase'],
     'vue/custom-event-name-casing': ['error', 'camelCase'],
-    'vue/define-macros-order': ['error', {
-      order: ['defineOptions', 'defineProps', 'defineEmits', 'defineSlots'],
-    }],
-    'vue/html-comment-content-spacing': ['error', 'always', {
-      exceptions: ['-'],
-    }],
+    'vue/define-macros-order': [
+      'error',
+      {
+        order: ['defineOptions', 'defineProps', 'defineEmits', 'defineSlots'],
+      },
+    ],
+    'vue/html-comment-content-spacing': [
+      'error',
+      'always',
+      {
+        exceptions: ['-'],
+      },
+    ],
     'vue/no-restricted-v-bind': ['error', '/^v-/'],
     'vue/no-useless-v-bind': 'error',
     'vue/no-unused-refs': 'error',
@@ -89,9 +103,15 @@ module.exports = {
       'WithStatement',
     ],
     'vue/no-sparse-arrays': 'error',
-    'vue/object-curly-newline': ['error', { multiline: true, consistent: true }],
+    'vue/object-curly-newline': [
+      'error',
+      { multiline: true, consistent: true },
+    ],
     'vue/object-curly-spacing': ['error', 'always'],
-    'vue/object-property-newline': ['error', { allowMultiplePropertiesPerLine: true }],
+    'vue/object-property-newline': [
+      'error',
+      { allowMultiplePropertiesPerLine: true },
+    ],
     'vue/object-shorthand': [
       'error',
       'always',

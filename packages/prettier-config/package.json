@@ -1,0 +1,19 @@
+{
+  "name": "@louishaftmann/prettier-config",
+  "version": "0.0.2",
+  "author": "Louis Haftmann",
+  "license": "MIT",
+  "keywords": [
+    "prettier-config"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "prettier": ">=3.0.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.0.0"
+  }
+}

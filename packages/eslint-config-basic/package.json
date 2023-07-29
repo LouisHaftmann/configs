@@ -15,7 +15,8 @@
     "lint": "eslint . --config=index.js"
   },
   "peerDependencies": {
-    "eslint": ">=7.4.0"
+    "eslint": ">=7.4.0",
+    "prettier": ">=3.0.0"
   },
   "dependencies": {
     "eslint-config-prettier": "^8.9.0",
@@ -33,10 +34,10 @@
     "eslint-plugin-unused-imports": "^3.0.0",
     "eslint-plugin-yml": "^1.8.0",
     "jsonc-eslint-parser": "^2.3.0",
-    "prettier": "^3.0.0",
     "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
-    "eslint": "^8.45.0"
+    "eslint": "^8.45.0",
+    "prettier": "^3.0.0"
   }
 }
