@@ -1,4 +1,4 @@
-# @louishaftmann/eslint-config & @louishaftmann/prettier-config
+# my eslint & prettier config
 
 this is a fork of [antfu's eslint config](https://https://github.com/antfu/eslint-config) with some changes to fit my needs
 
