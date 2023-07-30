@@ -1,6 +1,6 @@
 {
   "name": "@louishaftmann/eslint-config-basic",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "Louis Haftmann",
   "license": "MIT",
   "homepage": "https://github.com/louishaftmann/eslint-config",
