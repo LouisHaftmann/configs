@@ -110,7 +110,7 @@ module.exports = {
     'semi': 'off',
     '@typescript-eslint/semi': ['error', 'never'],
     'quotes': 'off',
-    '@typescript-eslint/quotes': ['error', 'single'],
+    '@typescript-eslint/quotes': 'off',
     'space-before-blocks': 'off',
     '@typescript-eslint/space-before-blocks': ['error', 'always'],
     'space-before-function-paren': 'off',
