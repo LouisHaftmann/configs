@@ -115,7 +115,7 @@ module.exports = {
       },
     ],
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
-    'keyword-spacing': ['error', { before: true, after: true }],
+    // 'keyword-spacing': ['error', { before: true, after: true }],
     'lines-between-class-members': [
       'error',
       'always',

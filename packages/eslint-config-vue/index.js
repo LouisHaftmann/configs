@@ -90,7 +90,7 @@ module.exports = {
     'vue/eqeqeq': ['error', 'smart'],
     // 'vue/func-call-spacing': ['off', 'never'],
     'vue/key-spacing': ['error', { beforeColon: false, afterColon: true }],
-    'vue/keyword-spacing': ['error', { before: true, after: true }],
+    // 'vue/keyword-spacing': ['error', { before: true, after: true }],
     'vue/no-constant-condition': 'warn',
     'vue/no-empty-pattern': 'error',
     'vue/no-extra-parens': ['error', 'functions'],
