@@ -41,7 +41,7 @@ module.exports = {
     ],
     'arrow-spacing': ['error', { before: true, after: true }],
     'block-spacing': ['error', 'always'],
-    // 'brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    'brace-style': 'off',
     'camelcase': [
       'error',
       {
@@ -115,7 +115,7 @@ module.exports = {
       },
     ],
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
-    // 'keyword-spacing': ['error', { before: true, after: true }],
+    'keyword-spacing': 'off',
     'lines-between-class-members': [
       'error',
       'always',
@@ -248,11 +248,7 @@ module.exports = {
       { allowMultiplePropertiesPerLine: true },
     ],
     'one-var': ['error', { initialized: 'never' }],
-    // 'operator-linebreak': [
-    //   'error',
-    //   'after',
-    //   { overrides: { '?': 'before', ':': 'before', '|>': 'before' } },
-    // ],
+    'operator-linebreak': 'off',
     'padded-blocks': [
       'error',
       { blocks: 'never', switches: 'never', classes: 'never' },
@@ -260,14 +256,10 @@ module.exports = {
     'prefer-const': ['error', { destructuring: 'all' }],
     'prefer-promise-reject-errors': 'error',
     'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
-    // 'quote-props': ['error', 'as-needed'],
-    // 'quotes': [
-    //   'error',
-    //   'single',
-    //   { avoidEscape: true, allowTemplateLiterals: false },
-    // ],
+    'quote-props': 'off',
+    'quotes': 'off',
     'rest-spread-spacing': ['error', 'never'],
-    // 'semi': ['error', 'never'],
+    'semi': 'off',
     'semi-spacing': ['error', { before: false, after: true }],
     'space-before-blocks': ['error', 'always'],
     'space-before-function-paren': ['error', 'always'],

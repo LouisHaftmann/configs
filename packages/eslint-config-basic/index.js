@@ -222,14 +222,14 @@ module.exports = {
     'import/no-mutable-exports': 'error',
     'import/no-unresolved': 'off',
     'import/no-absolute-path': 'off',
-    // 'import/newline-after-import': ['error', { count: 1, considerComments: true }],
+    'import/newline-after-import': 'off',
     'import/no-self-import': 'error',
 
     // Common
-    // "semi": ['error', 'never'],
+    'semi': 'off',
     'curly': ['error', 'multi-or-nest', 'consistent'],
-    // "quotes": ['error', 'single'],
-    // 'quote-props': ['error', 'consistent-as-needed'],
+    'quotes': 'off',
+    'quote-props': 'off',
 
     'unused-imports/no-unused-imports': 'error',
     'unused-imports/no-unused-vars': [
@@ -244,7 +244,7 @@ module.exports = {
 
     'no-param-reassign': 'off',
     'array-bracket-spacing': ['error', 'never'],
-    // 'brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
+    'brace-style': 'off',
     'block-spacing': ['error', 'always'],
     'camelcase': 'off',
     'comma-spacing': ['error', { before: false, after: true }],
@@ -256,11 +256,7 @@ module.exports = {
     'no-cond-assign': ['error', 'always'],
     'func-call-spacing': 'off',
     'key-spacing': ['error', { beforeColon: false, afterColon: true }],
-    // "indent": [
-    //   'error',
-    //   2,
-    //   { SwitchCase: 1, VariableDeclarator: 1, outerIIFEBody: 1 },
-    // ],
+    'indent': 'off',
     'no-restricted-syntax': [
       'error',
       'DebuggerStatement',
@@ -336,7 +332,7 @@ module.exports = {
     'prefer-spread': 'error',
     'prefer-template': 'error',
     'template-curly-spacing': 'error',
-    // 'arrow-parens': ['error', 'as-needed', { requireForBlockBody: true }],
+    'arrow-parens': 'off',
     'generator-star-spacing': 'off',
     'spaced-comment': [
       'error',
@@ -371,7 +367,7 @@ module.exports = {
     'vars-on-top': 'error',
     'require-await': 'off',
     'no-return-assign': 'off',
-    // 'operator-linebreak': ['error', 'before'],
+    'operator-linebreak': 'off',
     'max-statements-per-line': ['error', { max: 1 }],
 
     // node
@@ -434,7 +430,7 @@ module.exports = {
     'yml/no-empty-document': 'off',
 
     // antfu
-    // 'antfu/if-newline': 'error',
+    'antfu/if-newline': 'off',
     'antfu/import-dedupe': 'error',
     'antfu/top-level-function': 'error',
     'antfu/prefer-inline-type-import': 'error',
