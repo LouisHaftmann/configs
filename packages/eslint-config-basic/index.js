@@ -1,3 +1,6 @@
+const isInEditor = (process.env.VSCODE_PID || process.env.JETBRAINS_IDE) && !process.env.CI
+const offInEditor = isInEditor ? 'off' : 'error'
+
 module.exports = {
   env: {
     es6: true,
@@ -209,7 +212,7 @@ module.exports = {
         '@typescript-eslint/no-namespace': 'off',
         '@typescript-eslint/no-require-imports': 'off',
         'import/no-unresolved': 'off',
-        'unused-imports/no-unused-imports': 'off',
+        'unused-imports/no-unused-imports': offInEditor,
         'unused-imports/no-unused-vars': 'off',
         'no-alert': 'off',
         'no-console': 'off',
