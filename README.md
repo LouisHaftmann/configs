@@ -68,7 +68,6 @@ export default {
 }
 ```
 
-
 ### Ignore files
 
 **`.eslintignore`:**
@@ -91,4 +90,15 @@ dist/
 pnpm-lock.yaml
 ```
 
+### Package scripts
 
+**`package.json`:**
+```json
+{
+  "scripts": {
+    "prepare": "husky install .husky",
+    "lint": "eslint . && prettier --check .",
+    "lint:fix": "eslint --fix --cache . && prettier --write --cache .",
+  },
+}
+```
