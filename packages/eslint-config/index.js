@@ -5,6 +5,8 @@ module.exports = {
   extends: ['plugin:github/recommended', '@antfu', 'prettier'],
   rules: {
     'filenames/match-regex': 'off',
+    'i18n-text/no-en': 'off',
+
     'no-console': process.env.NODE_ENV === 'production' ? ['warn', { allow: ['debug'] }] : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
 
