@@ -1,6 +1,9 @@
-# my eslint & prettier config
+# my configs
 
-this extends [antfu's eslint config](https://github.com/antfu/eslint-config) with included feedback from [DrJume](https://github.com/DrJume)
+## Cool people and projects
+
+- [antfu's eslint config](https://github.com/antfu/eslint-config)
+- [DrJume](https://github.com/DrJume)
 
 ## Usage
 
