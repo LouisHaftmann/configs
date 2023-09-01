@@ -8,7 +8,7 @@
 ## Install
 
 ```bash
-pnpm i -D prettier eslint @louishaftmann/eslint-config @louishaftmann/prettier-config lint-staged
+pnpm i -D prettier eslint lint-staged @commitlint/cli @louishaftmann/eslint-config @louishaftmann/prettier-config @louishaftmann/commitlint-config
 ```
 
 ## Config
@@ -29,6 +29,15 @@ pnpm i -D prettier eslint @louishaftmann/eslint-config @louishaftmann/prettier-c
 
 ```js
 module.exports = require('@louishaftmann/prettier-config')
+```
+
+### commitlint
+
+**`commitlint.config.js`:**
+```js
+module.exports = {
+  extends: ['@louishaftmann/commitlint-config'],
+}
 ```
 
 ### VSCode settings
