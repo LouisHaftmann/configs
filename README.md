@@ -5,30 +5,33 @@
 - [antfu's eslint config](https://github.com/antfu/eslint-config)
 - [DrJume](https://github.com/DrJume)
 
-## Usage
-
-### Install
+## Install
 
 ```bash
 pnpm i -D prettier eslint @louishaftmann/eslint-config @louishaftmann/prettier-config lint-staged
 ```
 
-### Create `.eslintrc.json`
+## Config
 
+### ESLint
+
+**`.eslintrc.json`:**
 ```json
 {
   "extends": ["@louishaftmann"]
 }
 ```
 
-### Create `.prettierrc.cjs`
+### Prettier
 
+**`.prettierrc.cjs`:**
 ```js
 module.exports = require('@louishaftmann/prettier-config')
 ```
 
-### Create `.vscode/settings.json`
+### VSCode settings
 
+**`.vscode/settings.json`:**
 ```json
 {
   "prettier.enable": true,
@@ -52,8 +55,9 @@ module.exports = require('@louishaftmann/prettier-config')
 }
 ```
 
-### Create `.lintstagedrc.mjs`
+### lint-staged
 
+**`.lintstagedrc.mjs`:**
 ```js
 export default {
   '*.{vue,?([cm])[jt]s?(x),y?(a)ml,json?(c),md,html,?(s)css}': [
@@ -63,3 +67,28 @@ export default {
   '*.{vue,?([cm])ts?(x)}': () => 'vue-tsc -p tsconfig.json --noEmit --composite false', // run once for all files
 }
 ```
+
+
+### Ignore files
+
+**`.eslintignore`:**
+```ignore
+!.*
+node_modules/
+dist/
+.nuxt/
+.output/
+.temp/
+```
+
+**`.prettierignore`:**
+```ignore
+dist/
+.nuxt/
+.output/
+.temp/
+
+pnpm-lock.yaml
+```
+
+
