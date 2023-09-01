@@ -22,6 +22,7 @@ module.exports = {
     'antfu/if-newline': 'off',
 
     'yml/no-empty-mapping-value': 'off',
+    'yml/quotes': 'off',
 
     '@typescript-eslint/consistent-type-definitions': 'off',
     'vue/require-component-is': 'off',
