@@ -7,6 +7,13 @@ module.exports = {
     'import/extensions': 'off',
     'filenames/match-regex': 'off',
     'i18n-text/no-en': 'off',
+    'no-shadow': [
+      'error',
+      {
+        ignoreOnInitialization: true,
+        builtinGlobals: true,
+      },
+    ],
 
     'no-console': process.env.NODE_ENV === 'production' ? ['warn', { allow: ['debug'] }] : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
