@@ -1,6 +1,6 @@
 # my eslint & prettier config
 
-this is a fork of [antfu's eslint config](https://github.com/antfu/eslint-config) with some changes to fit my needs
+this extends [antfu's eslint config](https://github.com/antfu/eslint-config) with included feedback from [DrJume](https://github.com/DrJume)
 
 ## Usage
 
