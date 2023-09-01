@@ -7,10 +7,10 @@ this extends [antfu's eslint config](https://github.com/antfu/eslint-config) wit
 ### Install
 
 ```bash
-pnpm i -D prettier eslint @louishaftmann/eslint-config @louishaftmann/prettier-config
+pnpm i -D prettier eslint @louishaftmann/eslint-config @louishaftmann/prettier-config lint-staged
 ```
 
-### Create `.eslintrc`
+### Create `.eslintrc.json`
 
 ```json
 {
@@ -18,7 +18,7 @@ pnpm i -D prettier eslint @louishaftmann/eslint-config @louishaftmann/prettier-c
 }
 ```
 
-### Create `.prettierrc.js`
+### Create `.prettierrc.cjs`
 
 ```js
 module.exports = require('@louishaftmann/prettier-config')
@@ -46,5 +46,17 @@ module.exports = require('@louishaftmann/prettier-config')
     "jsonc",
     "yaml"
   ]
+}
+```
+
+### Create `.lintstagedrc.mjs`
+
+```js
+export default {
+  '*.{vue,?([cm])[jt]s?(x),y?(a)ml,json?(c),md,html,?(s)css}': [
+    'eslint --fix --cache',
+    'prettier --write --cache',
+  ],
+  '*.{vue,?([cm])ts?(x)}': () => 'vue-tsc -p tsconfig.json --noEmit --composite false', // run once for all files
 }
 ```
