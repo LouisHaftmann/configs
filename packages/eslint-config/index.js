@@ -50,6 +50,7 @@ module.exports = {
     ],
 
     // github
+    'github/no-then': 'off',
     'github/require-passive-events': ['error'],
     'github/no-useless-passive': ['error'],
     'github/no-innerText': ['error'],
