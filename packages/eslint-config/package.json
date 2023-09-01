@@ -7,12 +7,12 @@
   "keywords": [
     "eslint-config"
   ],
-  "main": "index.cjs",
+  "main": "index.js",
   "files": [
-    "index.cjs"
+    "index.js"
   ],
   "peerDependencies": {
-    "eslint": ">=8.0.0"
+    "eslint": ">=8"
   },
   "dependencies": {
     "@antfu/eslint-config": "^0.41.0",
