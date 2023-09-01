@@ -3,21 +3,19 @@
   "version": "1.1.4",
   "author": "Louis Haftmann",
   "license": "MIT",
-  "homepage": "https://github.com/louishaftmann/eslint-config",
+  "homepage": "https://github.com/louishaftmann/configs",
   "keywords": [
     "eslint-config"
   ],
-  "main": "index.js",
+  "main": "index.cjs",
   "files": [
-    "index.js"
+    "index.cjs"
   ],
   "peerDependencies": {
-    "eslint": ">=7.4.0"
+    "eslint": ">=8.0.0"
   },
   "dependencies": {
     "@antfu/eslint-config": "^0.41.0",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
-    "@tanstack/eslint-plugin-query": "^4.34.1",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-antfu": "^0.41.0",
     "eslint-plugin-github": "^4.10.0"
