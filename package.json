@@ -1,5 +1,5 @@
 {
-  "name": "@louishaftmann/eslint-config-monorepo",
+  "name": "@louishaftmann/config-monorepo",
   "version": "1.1.1",
   "private": true,
   "packageManager": "pnpm@8.6.7",
@@ -11,7 +11,7 @@
     "build": "pnpm -r run build",
     "prepare": "pnpm -r run stub",
     "release": "bumpp -r && pnpm run publish",
-    "publish": "pnpm -r publish --filter=!@louishaftmann/eslint-config-monorepo --no-git-checks --access public"
+    "publish": "pnpm -r publish --filter=!@louishaftmann/config-monorepo --no-git-checks --access public"
   },
   "devDependencies": {
     "@louishaftmann/eslint-config": "workspace:*",
