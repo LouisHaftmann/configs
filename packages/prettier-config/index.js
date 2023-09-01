@@ -1,6 +1,7 @@
 /* eslint-env node */
 
 /** @type import('prettier').Config */
+// eslint-disable-next-line import/no-commonjs
 module.exports = {
   semi: false,
   singleQuote: true,
