@@ -1,0 +1,17 @@
+{
+  "name": "@louishaftmann/lintstaged-config",
+  "version": "1.2.0",
+  "author": "Louis Haftmann",
+  "license": "MIT",
+  "homepage": "https://github.com/louishaftmann/configs",
+  "keywords": [
+    "lintstaged-config"
+  ],
+  "main": "index.mjs",
+  "files": [
+    "index.mjs"
+  ],
+  "peerDependencies": {
+    "lint-staged": ">=14"
+  }
+}
