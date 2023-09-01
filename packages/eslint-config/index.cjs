@@ -1,5 +1,4 @@
 /** @type {import("eslint").Linter.Config} */
-// eslint-disable-next-line import/no-commonjs
 module.exports = {
   root: true,
   extends: ['plugin:github/recommended', '@antfu', 'prettier'],
