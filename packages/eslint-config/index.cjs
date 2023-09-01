@@ -27,6 +27,7 @@ module.exports = {
     'vue/require-component-is': 'off',
 
     'jsonc/indent': 'off',
+    'yml/quotes': 'off',
 
     'import/order': [
       'warn',
