@@ -8,7 +8,7 @@
 ## Install
 
 ```bash
-pnpm i -D prettier eslint lint-staged @commitlint/cli @louishaftmann/eslint-config @louishaftmann/prettier-config @louishaftmann/commitlint-config
+pnpm i -D prettier eslint lint-staged @commitlint/cli @louishaftmann/eslint-config @louishaftmann/prettier-config @louishaftmann/commitlint-config @louishaftmann/lintstaged-config
 ```
 
 ## Config
@@ -72,12 +72,10 @@ module.exports = {
 **`.lintstagedrc.mjs`:**
 
 ```js
+import lintstagedConfig from '@louishaftmann/lintstaged-config'
+
 export default {
-  '*.{vue,?([cm])[jt]s?(x),y?(a)ml,json?(c),md,html,?(s)css}': [
-    'eslint --fix --cache',
-    'prettier --write --cache',
-  ],
-  '*.{vue,?([cm])ts?(x)}': () => 'vue-tsc -p tsconfig.json --noEmit --composite false', // run once for all files
+  ...lintstagedConfig
 }
 ```
 
