@@ -7,9 +7,9 @@
   "keywords": [
     "eslint-config"
   ],
-  "main": "index.js",
+  "main": "index.cjs",
   "files": [
-    "index.js"
+    "index.cjs"
   ],
   "peerDependencies": {
     "eslint": ">=8"

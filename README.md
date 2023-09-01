@@ -16,6 +16,7 @@ pnpm i -D prettier eslint @louishaftmann/eslint-config @louishaftmann/prettier-c
 ### ESLint
 
 **`.eslintrc.json`:**
+
 ```json
 {
   "extends": ["@louishaftmann"]
@@ -25,6 +26,7 @@ pnpm i -D prettier eslint @louishaftmann/eslint-config @louishaftmann/prettier-c
 ### Prettier
 
 **`.prettierrc.cjs`:**
+
 ```js
 module.exports = require('@louishaftmann/prettier-config')
 ```
@@ -32,6 +34,7 @@ module.exports = require('@louishaftmann/prettier-config')
 ### VSCode settings
 
 **`.vscode/settings.json`:**
+
 ```json
 {
   "prettier.enable": true,
@@ -58,6 +61,7 @@ module.exports = require('@louishaftmann/prettier-config')
 ### lint-staged
 
 **`.lintstagedrc.mjs`:**
+
 ```js
 export default {
   '*.{vue,?([cm])[jt]s?(x),y?(a)ml,json?(c),md,html,?(s)css}': [
@@ -71,6 +75,7 @@ export default {
 ### Ignore files
 
 **`.eslintignore`:**
+
 ```ignore
 !.*
 node_modules/
@@ -81,6 +86,7 @@ dist/
 ```
 
 **`.prettierignore`:**
+
 ```ignore
 dist/
 .nuxt/
@@ -93,6 +99,7 @@ pnpm-lock.yaml
 ### Package scripts
 
 **`package.json`:**
+
 ```json
 {
   "scripts": {

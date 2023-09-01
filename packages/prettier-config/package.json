@@ -7,9 +7,9 @@
   "keywords": [
     "prettier-config"
   ],
-  "main": "index.js",
+  "main": "index.cjs",
   "files": [
-    "index.js"
+    "index.cjs"
   ],
   "peerDependencies": {
     "prettier": ">=3"

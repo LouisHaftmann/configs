@@ -1,5 +1,5 @@
 /** @type {import("eslint").Linter.Config} */
-export default {
+module.exports = {
   root: true,
   extends: ['plugin:github/recommended', '@antfu', 'prettier'],
   rules: {
@@ -74,6 +74,12 @@ export default {
       files: ['docker-compose.yml', 'docker-compose.*.yml'],
       rules: {
         'yml/no-empty-mapping-value': 'off',
+      },
+    },
+    {
+      files: ['*.cjs', '*.cts'],
+      rules: {
+        'import/no-commonjs': 'off',
       },
     },
   ],

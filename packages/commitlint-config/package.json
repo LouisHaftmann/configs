@@ -7,9 +7,9 @@
   "keywords": [
     "commitlint-config"
   ],
-  "main": "index.js",
+  "main": "index.cjs",
   "files": [
-    "index.js"
+    "index.cjs"
   ],
   "peerDependencies": {
     "@commitlint/cli": ">=17"
