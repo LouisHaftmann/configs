@@ -2,14 +2,7 @@
 // eslint-disable-next-line import/no-commonjs
 module.exports = {
   root: true,
-  plugins: ['github'],
-  extends: [
-    '@nuxtjs/eslint-config-typescript',
-    'plugin:@tanstack/eslint-plugin-query/recommended',
-    'plugin:github/recommended',
-    '@antfu',
-    'prettier',
-  ],
+  extends: ['plugin:github/recommended', '@antfu', 'prettier'],
   rules: {
     'filenames/match-regex': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? ['warn', { allow: ['debug'] }] : 'off',
