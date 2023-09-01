@@ -11,7 +11,6 @@ module.exports = {
       'error',
       {
         ignoreOnInitialization: true,
-        builtinGlobals: true,
       },
     ],
 
