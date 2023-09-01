@@ -1,7 +1,11 @@
+/* eslint-env node */
+
+/** @type import('prettier').Config */
 module.exports = {
-  singleQuote: true,
-  tabWidth: 2,
   semi: false,
+  singleQuote: true,
+  printWidth: 100,
+  htmlWhitespaceSensitivity: 'ignore',
   quoteProps: 'consistent',
-  trailingCommas: 'es5',
+  plugins: [require.resolve('prettier-plugin-tailwindcss')],
 }

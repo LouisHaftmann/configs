@@ -28,13 +28,12 @@ module.exports = require('@louishaftmann/prettier-config')
 
 ```json
 {
-  "prettier.enable": false,
-  "editor.formatOnSave": false,
+  "prettier.enable": true,
+  "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
     "source.organizeImports": false
   },
-
   "eslint.validate": [
     "javascript",
     "javascriptreact",
