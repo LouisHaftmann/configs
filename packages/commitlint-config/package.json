@@ -1,0 +1,23 @@
+{
+  "name": "@louishaftmann/commitlint-config",
+  "version": "1.1.4",
+  "author": "Louis Haftmann",
+  "license": "MIT",
+  "homepage": "https://github.com/louishaftmann/configs",
+  "keywords": [
+    "commitlint-config"
+  ],
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "peerDependencies": {
+    "@commitlint/cli": ">=17"
+  },
+  "dependencies": {
+    "@commitlint/config-conventional": "^17.7.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.1"
+  }
+}
