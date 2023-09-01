@@ -33,7 +33,7 @@ module.exports = require('@louishaftmann/prettier-config')
 
 ### commitlint
 
-**`commitlint.config.js`:**
+**`commitlint.config.cjs`:**
 ```js
 module.exports = {
   extends: ['@louishaftmann/commitlint-config'],
