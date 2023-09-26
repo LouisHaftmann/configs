@@ -3,6 +3,7 @@ module.exports = {
   root: true,
   extends: ['plugin:github/recommended', '@antfu', 'prettier'],
   rules: {
+    'prettier/prettier': 'off', // disable `eslint-plugin-prettier` which is enabled by `eslint-plugin-github`
     'import/extensions': 'off',
     'filenames/match-regex': 'off',
     'i18n-text/no-en': 'off',
