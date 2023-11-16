@@ -20,7 +20,7 @@ jobs:
           version: 8
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 20.x
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
@@ -37,7 +37,7 @@ jobs:
           version: 8
       - uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 20.x
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
