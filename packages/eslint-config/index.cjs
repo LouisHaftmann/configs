@@ -1,7 +1,8 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  extends: ['plugin:github/recommended', '@antfu', 'prettier'],
+  extends: ['@antfu', 'prettier'],
+  plugins: ['github'],
   rules: {
     'prettier/prettier': 'off', // disable `eslint-plugin-prettier` which is enabled by `eslint-plugin-github`
     'import/extensions': 'off',
@@ -58,6 +59,7 @@ module.exports = {
     ],
 
     // github
+    'github/array-foreach': 'error',
     'github/no-then': 'off',
     'github/require-passive-events': ['error'],
     'github/no-useless-passive': ['error'],
