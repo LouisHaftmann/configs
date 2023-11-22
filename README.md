@@ -53,6 +53,7 @@ module.exports = {
     "source.fixAll.eslint": true,
     "source.organizeImports": false
   },
+  "eslint.experimental.useFlatConfig": true,
   "eslint.validate": [
     "javascript",
     "javascriptreact",
