@@ -8,7 +8,7 @@ const compat = new FlatCompat()
 
 /** @type {import('./index.d.ts').eslintConfig} */
 export async function eslintConfig(
-  { nuxt, tsconfigPath } = { nuxt: false, tsconfigPath: undefined },
+  { nuxt, tsconfigPath, configs } = { nuxt: false, tsconfigPath: undefined, configs: undefined },
 ) {
   return await combine(
     github,
@@ -97,7 +97,10 @@ export async function eslintConfig(
       },
 
       // Nuxt
-      ...(nuxt && nuxtRules),
+      ...(nuxt ? nuxtRules : []),
+
+      // custom
+      ...(configs ?? [])
     ),
   )
 }
