@@ -2,7 +2,6 @@
   "name": "@louishaftmann/eslint-config",
   "version": "2.0.0",
   "author": "Louis Haftmann",
-  "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/louishaftmann/configs",
   "keywords": [
