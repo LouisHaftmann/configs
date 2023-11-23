@@ -7,7 +7,9 @@ import nuxtRules from './nuxt.js'
 const compat = new FlatCompat()
 
 /** @type {import('./index.d.ts').eslintConfig} */
-export async function eslintConfig({ nuxt } = { nuxt: false }) {
+export async function eslintConfig(
+  { nuxt, tsconfigPath } = { nuxt: false, tsconfigPath: undefined },
+) {
   return await combine(
     github,
     await antfu(
@@ -15,7 +17,18 @@ export async function eslintConfig({ nuxt } = { nuxt: false }) {
         stylistic: false,
 
         typescript: {
-          // tsconfigPath: tsconfigPath, // typescript aware rules WIP
+          tsconfigPath: tsconfigPath,
+        },
+      },
+      {
+        // type aware rules break with type imports used in / from vue components
+        files: ['**/*.vue'],
+        rules: {
+          'ts/no-unsafe-assignment': 'off',
+          'ts/no-unsafe-call': 'off',
+          'ts/no-unsafe-return': 'off',
+          'ts/no-unsafe-argument': 'off',
+          'ts/no-unsafe-member-access': 'off',
         },
       },
 
