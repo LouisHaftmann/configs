@@ -1,5 +1,10 @@
 # my configs
 
+[![npm](https://img.shields.io/npm/v/%40louishaftmann/eslint-config?label=eslint-config)](https://npmjs.com/package/@louishaftmann/eslint-config)
+[![npm](https://img.shields.io/npm/v/%40louishaftmann/prettier-config?label=prettier-config)](https://npmjs.com/package/@louishaftmann/prettier-config)
+[![npm](https://img.shields.io/npm/v/%40louishaftmann/commitlint-config?label=commitlint-config)](https://npmjs.com/package/@louishaftmann/commitlint-config)
+[![npm](https://img.shields.io/npm/v/%40louishaftmann/lintstaged-config?label=lintstaged-config)](https://npmjs.com/package/@louishaftmann/lintstaged-config)
+
 ## Cool people and projects
 
 - [antfu's eslint config](https://github.com/antfu/eslint-config)
