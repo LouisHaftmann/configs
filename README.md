@@ -15,12 +15,36 @@ pnpm i -D prettier eslint lint-staged @commitlint/cli @louishaftmann/eslint-conf
 
 ### ESLint
 
-**`.eslintrc.json`:**
+**`eslint.config.js`:**
 
-```json
-{
-  "extends": ["@louishaftmann"]
+> [!NOTE]  
+> For `import`s to work, you need to set `"type": "module"` in your `package.json`
+
+```js
+// @ts-check
+
+// optional, if you have old eslint configs you want to use
+import { FlatCompat } from '@eslint/eslintrc'
+
+import _eslintConfig from '@louishaftmann/eslint-config'
+
+const compat = new FlatCompat()
+
+const eslintConfig = await _eslintConfig({
+  nuxt: true,
+  tsconfigPath: ['./tsconfig.json', './modules/tsconfig.json', './server/tsconfig.json'],
+})
+
+/** @type {import('eslint').Linter.FlatConfig} */
+const ignores = {
+  ignores: ['.prettierrc.cjs', '.lintstagedrc.mjs'],
 }
+
+export default [
+  ...compat.extends('plugin:@tanstack/eslint-plugin-query/recommended'),
+  ...eslintConfig,
+  ignores,
+]
 ```
 
 ### Prettier
