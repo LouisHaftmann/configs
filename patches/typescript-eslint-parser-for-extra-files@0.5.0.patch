@@ -1,0 +1,29 @@
+diff --git a/lib/index.mjs b/lib/index.mjs
+index c0dd8161accfb10ff5789a6c4d13bb519b8f1887..14dbeb0534eaba4a2425685aab4aa6f53ea4f957 100644
+--- a/lib/index.mjs
++++ b/lib/index.mjs
+@@ -17,6 +17,7 @@ var __spreadValues = (a, b) => {
+   return a;
+ };
+ var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
++const require = createRequire(import.meta.url);
+ var __require = /* @__PURE__ */ ((x) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x, {
+   get: (a, b) => (typeof require !== "undefined" ? require : a)[b]
+ }) : x)(function(x) {
+@@ -60,7 +61,7 @@ function transformForSvelte(code, context) {
+     filename: context.filePath
+   });
+   return `/// <reference types="svelte2tsx/svelte-shims" />
+-  
++
+ ${result.code}`;
+ }
+ 
+@@ -431,6 +432,7 @@ import * as tsEslintParser from "@typescript-eslint/parser";
+ // src/utils/get-project-config-files.ts
+ import fs from "fs";
+ import path3 from "path";
++import { createRequire } from "module"
+ function getProjectConfigFiles(options) {
+   const tsconfigRootDir = typeof options.tsconfigRootDir === "string" ? options.tsconfigRootDir : process.cwd();
+   if (options.project !== true) {
