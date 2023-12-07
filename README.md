@@ -148,6 +148,7 @@ pnpm-lock.yaml
   "scripts": {
     "prepare": "husky install .husky",
     "lint": "eslint --cache . && prettier --check --cache .",
+    "ci:lint": "eslint --cache --cache-strategy content . && prettier --check --cache --cache-strategy content .",
     "lint:fix": "eslint --fix --cache . && prettier --write --cache .",
   }
 }
