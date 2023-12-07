@@ -102,11 +102,16 @@ module.exports = {
 
 **`.lintstagedrc.mjs`:**
 
+> [!WARNING]
+> When configured inside a pnpm workspace package, pass the package name as a parameter.
+>
+> e.g. `lintstagedConfig('web')`
+
 ```js
 import lintstagedConfig from '@louishaftmann/lintstaged-config'
 
 export default {
-  ...lintstagedConfig
+  ...lintstagedConfig()
 }
 ```
 
