@@ -102,11 +102,16 @@ module.exports = {
 
 **`.lintstagedrc.mjs`:**
 
+> [!WARNING]
+> When configured inside a pnpm workspace package, pass the package name as a parameter.
+>
+> e.g. `lintstagedConfig('web')`
+
 ```js
 import lintstagedConfig from '@louishaftmann/lintstaged-config'
 
 export default {
-  ...lintstagedConfig
+  ...lintstagedConfig()
 }
 ```
 
@@ -143,6 +148,7 @@ pnpm-lock.yaml
   "scripts": {
     "prepare": "husky install .husky",
     "lint": "eslint --cache . && prettier --check --cache .",
+    "ci:lint": "eslint --cache --cache-strategy content . && prettier --check --cache --cache-strategy content .",
     "lint:fix": "eslint --fix --cache . && prettier --write --cache .",
   }
 }
