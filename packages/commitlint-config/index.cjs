@@ -30,9 +30,9 @@ module.exports = {
   plugins: [
     {
       rules: {
-        'no-emoji': ({ raw }) => {
+        'no-emoji': ({ header }) => {
           return [
-            !emojiRegEx.test(raw) && !colonEmojiRegEx.test(raw),
+            !emojiRegEx.test(header) && !colonEmojiRegEx.test(header),
             "Don't use emojis in commit messages.",
           ]
         },
