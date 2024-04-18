@@ -68,6 +68,11 @@ export function eslintConfig(
 
         // prefer `test` over `it` because it makes the test name more readable (no `should`)
         'test/consistent-test-it': ['error', { fn: 'test', withinDescribe: 'test' }],
+
+        // force <script lang="ts">
+        'vue/block-lang': ['error', { script: { lang: 'ts' } }],
+        // force @click="handler()"
+        'vue/v-on-handler-style': ['error', 'inline'],
       },
     })
     .append(
