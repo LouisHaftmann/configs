@@ -36,20 +36,21 @@ const compat = new FlatCompat()
 
 export default eslintConfig({
   nuxt: true,
-  tsconfigPath: ['./tsconfig.json', './modules/tsconfig.json', './server/tsconfig.json'],
+  tsconfigPath: ['./tsconfig.json', './server/tsconfig.json'],
 })
   .append(compat.extends('plugin:@tanstack/eslint-plugin-query/recommended'))
   .append({
-    ignores: ['.prettierrc.cjs', '.lintstagedrc.mjs'],
+    ignores: [],
   })
 ```
 
 ### Prettier
 
-**`.prettierrc.cjs`:**
+**`prettier.config.js`:**
 
 ```js
-module.exports = require('@louishaftmann/prettier-config')
+import config from '@louishaftmann/prettier-config'
+export default config
 ```
 
 ### commitlint
@@ -93,7 +94,7 @@ module.exports = {
 
 ### lint-staged
 
-**`.lintstagedrc.mjs`:**
+**`.lintstagedrc.js`:**
 
 > [!WARNING]
 > When configured inside a pnpm workspace package, pass the package name as a parameter.
@@ -109,17 +110,6 @@ export default {
 ```
 
 ### Ignore files
-
-**`.eslintignore`:**
-
-```ignore
-!.*
-node_modules/
-dist/
-.nuxt/
-.output/
-.temp/
-```
 
 **`.prettierignore`:**
 
@@ -139,7 +129,7 @@ pnpm-lock.yaml
 ```json
 {
   "scripts": {
-    "prepare": "husky install .husky",
+    "prepare": "husky",
     "lint": "eslint --cache . && prettier --check --cache .",
     "ci:lint": "eslint --cache --cache-strategy content . && prettier --check --cache --cache-strategy content .",
     "lint:fix": "eslint --fix --cache . && prettier --write --cache ."
