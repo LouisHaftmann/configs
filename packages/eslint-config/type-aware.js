@@ -3,13 +3,13 @@ import vueESLintParser from 'vue-eslint-parser'
 
 /**
  * @param tsconfigPath {string[]}
- * @returns {import('@antfu/eslint-config').UserConfigItem[]}
+ * @returns {import('eslint').Linter.FlatConfig[]}
  */
 export default (tsconfigPath) => [
   {
     files: ['**/*.ts', '**/*.tsx'],
     languageOptions: {
-      parser: tsESLintParserForExtraFiles,
+      /** @type {any} */ parser: tsESLintParserForExtraFiles,
       parserOptions: {
         project: tsconfigPath,
         // extraFileExtensions: ['.vue'],
