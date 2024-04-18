@@ -19,7 +19,7 @@
     "bumpp": "^9.4.0",
     "eslint": "^8.57.0",
     "rimraf": "^5.0.5",
-    "typescript": "^5.4.3"
+    "typescript": "^5.4.5"
   },
   "changelogithub": {
     "extends": "gh:falcondev-it/configs/changelogithub"
