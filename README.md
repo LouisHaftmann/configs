@@ -22,7 +22,7 @@ pnpm i -D prettier eslint lint-staged @commitlint/cli @louishaftmann/eslint-conf
 
 **`eslint.config.js`:**
 
-> [!NOTE]  
+> [!NOTE]
 > For `import`s to work, you need to set `"type": "module"` in your `package.json`
 
 ```js
@@ -30,26 +30,18 @@ pnpm i -D prettier eslint lint-staged @commitlint/cli @louishaftmann/eslint-conf
 
 // optional, if you have old eslint configs you want to use
 import { FlatCompat } from '@eslint/eslintrc'
-
-import _eslintConfig from '@louishaftmann/eslint-config'
+import eslintConfig from '@louishaftmann/eslint-config'
 
 const compat = new FlatCompat()
 
-const eslintConfig = await _eslintConfig({
+export default eslintConfig({
   nuxt: true,
   tsconfigPath: ['./tsconfig.json', './modules/tsconfig.json', './server/tsconfig.json'],
 })
-
-/** @type {import('eslint').Linter.FlatConfig} */
-const ignores = {
-  ignores: ['.prettierrc.cjs', '.lintstagedrc.mjs'],
-}
-
-export default [
-  ...compat.extends('plugin:@tanstack/eslint-plugin-query/recommended'),
-  ...eslintConfig,
-  ignores,
-]
+  .append(compat.extends('plugin:@tanstack/eslint-plugin-query/recommended'))
+  .append({
+    ignores: ['.prettierrc.cjs', '.lintstagedrc.mjs'],
+  })
 ```
 
 ### Prettier
@@ -63,6 +55,7 @@ module.exports = require('@louishaftmann/prettier-config')
 ### commitlint
 
 **`commitlint.config.cjs`:**
+
 ```js
 module.exports = {
   extends: ['@louishaftmann/commitlint-config'],
@@ -111,7 +104,7 @@ module.exports = {
 import lintstagedConfig from '@louishaftmann/lintstaged-config'
 
 export default {
-  ...lintstagedConfig()
+  ...lintstagedConfig(),
 }
 ```
 
@@ -149,7 +142,7 @@ pnpm-lock.yaml
     "prepare": "husky install .husky",
     "lint": "eslint --cache . && prettier --check --cache .",
     "ci:lint": "eslint --cache --cache-strategy content . && prettier --check --cache --cache-strategy content .",
-    "lint:fix": "eslint --fix --cache . && prettier --write --cache .",
+    "lint:fix": "eslint --fix --cache . && prettier --write --cache ."
   }
 }
 ```
