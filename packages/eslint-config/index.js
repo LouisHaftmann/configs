@@ -15,6 +15,15 @@ export function eslintConfig(
     typescript: {
       tsconfigPath: tsconfigPath,
     },
+
+    vue: {
+      overrides: {
+        // force <script lang="ts">
+        'vue/block-lang': ['error', { script: { lang: 'ts' } }],
+        // force @click="handler()"
+        'vue/v-on-handler-style': ['error', 'inline'],
+      },
+    },
   })
     .prepend(github)
     .append(nuxt ? nuxtRules : [])
@@ -68,14 +77,6 @@ export function eslintConfig(
 
         // prefer `test` over `it` because it makes the test name more readable (no `should`)
         'test/consistent-test-it': ['error', { fn: 'test', withinDescribe: 'test' }],
-      },
-    })
-    .override('antfu/vue/rules', {
-      rules: {
-        // force <script lang="ts">
-        'vue/block-lang': ['error', { script: { lang: 'ts' } }],
-        // force @click="handler()"
-        'vue/v-on-handler-style': ['error', 'inline'],
       },
     })
     .append(
