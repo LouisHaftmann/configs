@@ -1,6 +1,6 @@
 {
   "name": "@louishaftmann/config-monorepo",
-  "version": "3.2.2",
+  "version": "3.2.3",
   "private": true,
   "type": "module",
   "packageManager": "pnpm@8.15.6",
