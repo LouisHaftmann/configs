@@ -1,10 +1,13 @@
 import antfu from '@antfu/eslint-config'
+import { FlatCompat } from '@eslint/eslintrc'
 import eslintConfigPrettier from 'eslint-config-prettier'
 
 import github from './github.js'
 import nuxtRules from './nuxt.js'
 
 delete eslintConfigPrettier.rules['vue/html-self-closing']
+
+const compat = new FlatCompat()
 
 /** @type {import('./index.d.ts').eslintConfig} */
 export function eslintConfig(
@@ -84,6 +87,13 @@ export function eslintConfig(
         'test/consistent-test-it': ['error', { fn: 'test', withinDescribe: 'test' }],
 
         'antfu/top-level-function': 'error',
+      },
+    })
+    .append({
+      name: 'falcondev/shopify',
+      ...compat.plugins('@shopify/eslint-plugin')[0],
+      rules: {
+        '@shopify/prefer-early-return': 'error',
       },
     })
     .append(
