@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
+    "module": "NodeNext",
     "checkJs": true,
     "noEmit": true,
-    "module": "NodeNext",
     "esModuleInterop": true
   },
   "include": ["*"]

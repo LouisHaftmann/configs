@@ -1,4 +1,5 @@
-import antfu, { TypedFlatConfigItem } from '@antfu/eslint-config'
+import type { TypedFlatConfigItem } from '@antfu/eslint-config'
+import type antfu from '@antfu/eslint-config'
 
 declare function eslintConfig(config: {
   nuxt: boolean

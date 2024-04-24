@@ -6,11 +6,11 @@ const REMOVE_RULES = ['import/', 'prettier/', 'eslint-comments/', 'camelcase']
 
 const github = compat.extends('plugin:github/recommended').map((configItem, index) => {
   if (configItem.rules) {
-    Object.keys(configItem.rules).forEach((rule) => {
+    for (const rule of Object.keys(configItem.rules)) {
       if (REMOVE_RULES.some((r) => rule.startsWith(r))) {
         delete configItem.rules[rule]
       }
-    })
+    }
   }
 
   if (configItem.settings) {
@@ -19,8 +19,8 @@ const github = compat.extends('plugin:github/recommended').map((configItem, inde
 
   if (configItem.plugins) {
     delete configItem.plugins['eslint-comments']
-    delete configItem.plugins['import']
-    delete configItem.plugins['prettier']
+    delete configItem.plugins.import
+    delete configItem.plugins.prettier
   }
 
   configItem.name = `github/${index}`

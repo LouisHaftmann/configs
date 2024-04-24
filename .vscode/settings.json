@@ -1,4 +1,16 @@
 {
   "eslint.experimental.useFlatConfig": true,
-  "references.preferredLocation": "peek"
+  "references.preferredLocation": "peek",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml"
+  ]
 }

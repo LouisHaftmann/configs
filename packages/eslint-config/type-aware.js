@@ -3,7 +3,7 @@ import vueESLintParser from 'vue-eslint-parser'
 
 /**
  * @param tsconfigPath {string[]}
- * @returns {import('eslint').Linter.FlatConfig[]}
+ * @returns {import('eslint').Linter.FlatConfig[]} FlatConfig[]
  */
 export default (tsconfigPath) => [
   {

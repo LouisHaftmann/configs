@@ -1,9 +1,9 @@
 import antfu from '@antfu/eslint-config'
+import eslintConfigPrettier from 'eslint-config-prettier'
 
 import github from './github.js'
 import nuxtRules from './nuxt.js'
 
-import eslintConfigPrettier from 'eslint-config-prettier'
 delete eslintConfigPrettier.rules['vue/html-self-closing']
 
 /** @type {import('./index.d.ts').eslintConfig} */
@@ -14,7 +14,7 @@ export function eslintConfig(
     stylistic: false,
 
     typescript: {
-      tsconfigPath: tsconfigPath,
+      tsconfigPath,
     },
 
     vue: {

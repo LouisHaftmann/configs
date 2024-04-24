@@ -1,8 +1,8 @@
 {
   "name": "@louishaftmann/config-monorepo",
+  "type": "module",
   "version": "3.2.3",
   "private": true,
-  "type": "module",
   "packageManager": "pnpm@8.15.6",
   "author": "Louis Haftmann",
   "license": "MIT",
