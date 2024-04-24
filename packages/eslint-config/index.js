@@ -4,6 +4,7 @@ import github from './github.js'
 import nuxtRules from './nuxt.js'
 
 import eslintConfigPrettier from 'eslint-config-prettier'
+delete eslintConfigPrettier.rules['vue/html-self-closing']
 
 /** @type {import('./index.d.ts').eslintConfig} */
 export function eslintConfig(
@@ -22,6 +23,15 @@ export function eslintConfig(
         'vue/block-lang': ['error', { script: { lang: 'ts' } }],
         // force @click="handler()"
         'vue/v-on-handler-style': ['error', 'inline'],
+
+        'vue/html-self-closing': [
+          'warn',
+          {
+            html: { void: 'always', normal: 'always', component: 'always' },
+            svg: 'always',
+            math: 'always',
+          },
+        ],
       },
     },
   })
