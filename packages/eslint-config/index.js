@@ -40,14 +40,9 @@ export function eslintConfig(
     .append({
       name: 'falcondev/rules',
       rules: {
-        'import/extensions': 'off',
-        'filenames/match-regex': 'off',
-        'i18n-text/no-en': 'off',
         'no-shadow': ['error', { ignoreOnInitialization: true }],
 
-        'no-console':
-          process.env.NODE_ENV === 'production' ? ['warn', { allow: ['debug'] }] : 'off',
-        'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+        'no-console': ['warn', { allow: ['warn', 'error', 'debug', 'trace'] }],
 
         'node/prefer-global/process': 'off',
 
@@ -55,7 +50,6 @@ export function eslintConfig(
         'yaml/quotes': 'off',
 
         'ts/consistent-type-definitions': 'off',
-        'vue/require-component-is': 'off',
 
         'jsonc/indent': 'off',
 
@@ -105,7 +99,10 @@ export function eslintConfig(
       },
     )
     .append(configs ?? [])
-    .append(eslintConfigPrettier)
+    .append({
+      name: 'prettier/disables',
+      ...eslintConfigPrettier,
+    })
 }
 
 export default eslintConfig

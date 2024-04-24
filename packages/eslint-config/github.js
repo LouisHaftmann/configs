@@ -33,6 +33,9 @@ export default [
   {
     name: 'falcondev/github',
     rules: {
+      'i18n-text/no-en': 'off',
+      'filenames/match-regex': 'off',
+
       'github/no-then': 'off',
 
       // browser
