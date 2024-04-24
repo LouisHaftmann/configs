@@ -16,13 +16,13 @@
   "dependencies": {
     "@antfu/eslint-config": "^2.15.0",
     "@eslint/eslintrc": "^3.0.2",
-    "@nuxt/eslint-config": "^0.3.8",
+    "@nuxt/eslint-config": "^0.3.9",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-github": "^4.10.2",
     "typescript-eslint-parser-for-extra-files": "^0.6.0"
   },
   "devDependencies": {
-    "@types/eslint": "^8.56.9",
+    "@types/eslint": "^8.56.10",
     "@types/eslint__eslintrc": "^2.1.1",
     "eslint": "^8.57.0"
   }

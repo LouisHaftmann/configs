@@ -4,7 +4,7 @@ const compat = new FlatCompat()
 
 const REMOVE_RULES = ['import/', 'prettier/', 'eslint-comments/', 'camelcase']
 
-const github = compat.extends('plugin:github/recommended').map((configItem) => {
+const github = compat.extends('plugin:github/recommended').map((configItem, index) => {
   if (configItem.rules) {
     Object.keys(configItem.rules).forEach((rule) => {
       if (REMOVE_RULES.some((r) => rule.startsWith(r))) {
@@ -23,6 +23,7 @@ const github = compat.extends('plugin:github/recommended').map((configItem) => {
     delete configItem.plugins['prettier']
   }
 
+  configItem.name = `github/${index}`
   return configItem
 })
 
@@ -30,6 +31,7 @@ const github = compat.extends('plugin:github/recommended').map((configItem) => {
 export default [
   ...github,
   {
+    name: 'falcondev/github',
     rules: {
       'github/no-then': 'off',
 

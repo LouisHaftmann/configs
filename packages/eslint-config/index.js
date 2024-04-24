@@ -28,6 +28,7 @@ export function eslintConfig(
     .prepend(github)
     .append(nuxt ? nuxtRules : [])
     .append({
+      name: 'falcondev/rules',
       rules: {
         'import/extensions': 'off',
         'filenames/match-regex': 'off',
@@ -77,31 +78,24 @@ export function eslintConfig(
 
         // prefer `test` over `it` because it makes the test name more readable (no `should`)
         'test/consistent-test-it': ['error', { fn: 'test', withinDescribe: 'test' }],
+
+        'antfu/top-level-function': 'error',
       },
     })
     .append(
       {
+        name: 'falcondev/cjs',
         files: ['*.cjs', '*.cts'],
         rules: { 'import/no-commonjs': 'off' },
       },
       {
+        name: 'falcondev/yaml',
         files: ['docker-compose.yml', 'docker-compose.*.yml'],
         rules: { 'yaml/no-empty-mapping-value': 'off' },
       },
     )
     .append(configs ?? [])
     .append(eslintConfigPrettier)
-  // .append({
-  //   // type aware rules break with type imports used in / from vue components
-  //   files: ['**/*.vue'],
-  //   rules: {
-  //     'ts/no-unsafe-assignment': 'off',
-  //     'ts/no-unsafe-call': 'off',
-  //     'ts/no-unsafe-return': 'off',
-  //     'ts/no-unsafe-argument': 'off',
-  //     'ts/no-unsafe-member-access': 'off',
-  //   },
-  // })
 }
 
 export default eslintConfig
