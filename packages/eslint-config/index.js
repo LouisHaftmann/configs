@@ -96,6 +96,8 @@ export function eslintConfig(
         'test/consistent-test-it': ['error', { fn: 'test', withinDescribe: 'test' }],
 
         'antfu/top-level-function': 'error',
+
+        'yoda': ['error', 'never', { exceptRange: true }],
       },
     })
     .append({
