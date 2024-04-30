@@ -25,7 +25,7 @@ export function eslintConfig(
         // force <script lang="ts">
         'vue/block-lang': ['error', { script: { lang: 'ts' } }],
         // force @click="handler()"
-        'vue/v-on-handler-style': ['error', 'inline'],
+        'vue/v-on-handler-style': ['error', 'inline-function'],
 
         'vue/html-self-closing': [
           'warn',
