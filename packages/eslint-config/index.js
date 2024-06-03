@@ -62,6 +62,7 @@ export function eslintConfig(
         'yaml/quotes': 'off',
 
         'ts/consistent-type-definitions': 'off',
+        'ts/strict-boolean-expressions': 'off',
 
         'jsonc/indent': 'off',
 
