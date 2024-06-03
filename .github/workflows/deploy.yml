@@ -3,6 +3,13 @@
 name:  
 
 on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: "Force checkout a specific git ref (branch, tag, commit)"
+        type: string
+        default: 'master'
+
   workflow_call:
     inputs:
       ref:
