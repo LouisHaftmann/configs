@@ -2,9 +2,10 @@
 # prettier-ignore
 name:  
 
+run-name: Deploy ${{ inputs.ref || github.ref_name }}
+
 on:
   workflow_dispatch:
-
   workflow_call:
     inputs:
       ref:
