@@ -3,7 +3,7 @@ export default (runInPackage) => {
   const pnpmExec = runInPackage ? `pnpm --filter ${runInPackage} exec ` : ''
 
   return {
-    '*.{vue,?([cm])[jt]s?(x),y?(a)ml,json?(c),md,html,?(s)css}': [
+    '*.{vue,?([cm])[jt]s?(x),y?(a)ml,json?(c),md,(ht|x)ml,?(s)css}': [
       `${pnpmExec}eslint --fix --cache`,
       `${pnpmExec}prettier --write --cache`,
     ],
