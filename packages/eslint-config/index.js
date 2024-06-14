@@ -1,6 +1,7 @@
 import antfu from '@antfu/eslint-config'
 import { FlatCompat } from '@eslint/eslintrc'
 import eslintConfigPrettier from 'eslint-config-prettier'
+import eslintPluginCompat from 'eslint-plugin-compat'
 
 import github from './github.js'
 import nuxtRules from './nuxt.js'
@@ -120,6 +121,7 @@ export function eslintConfig(
         rules: { 'yaml/no-empty-mapping-value': 'off' },
       },
     )
+    .append(eslintPluginCompat.configs['flat/recommended'])
     .append(configs ?? [])
     .append({
       name: 'prettier/disables',

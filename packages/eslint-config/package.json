@@ -19,10 +19,12 @@
     "@nuxt/eslint-config": "^0.3.13",
     "@shopify/eslint-plugin": "^45.0.0",
     "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-compat": "^5.0.0",
     "eslint-plugin-github": "^5.0.1"
   },
   "devDependencies": {
     "@types/eslint": "^8.56.10",
+    "@types/eslint-config-prettier": "^6.11.3",
     "@types/eslint__eslintrc": "^2.1.1",
     "eslint": "^8.57.0"
   }

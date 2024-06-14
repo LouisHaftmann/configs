@@ -44,6 +44,23 @@ export default eslintConfig({
   })
 ```
 
+#### `eslint-plugin-compat` Target Browsers
+
+Browser targets are configured using [browserslist](https://github.com/browserslist/browserslist). You can configure browser targets in your `package.json`:
+
+##### `package.json`
+
+```jsonc
+{
+  // ...
+  "browserslist": ["defaults"],
+}
+```
+
+If no configuration is found, browserslist [defaults to](https://github.com/browserslist/browserslist#queries) `"> 0.5%, last 2 versions, Firefox ESR, not dead"`.
+
+See [browserslist/browserslist](https://github.com/browserslist/browserslist) for more details.
+
 ### Prettier
 
 **`prettier.config.js`:**
@@ -87,7 +104,8 @@ module.exports = {
     "markdown",
     "json",
     "jsonc",
-    "yaml"
+    "yaml",
+    "dockercompose"
   ]
 }
 ```
