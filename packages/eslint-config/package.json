@@ -14,7 +14,7 @@
     "eslint": ">=8"
   },
   "browserslist": [
-    "defaults and fully supports es6-module",
+    "> 0.5% in DE, last 3 versions, Firefox ESR, not dead and fully supports es6-module",
     "maintained node versions"
   ],
   "dependencies": {

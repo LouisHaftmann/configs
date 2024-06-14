@@ -53,7 +53,10 @@ Browser targets are configured using [browserslist](https://github.com/browsersl
 ```jsonc
 {
   // ...
-  "browserslist": ["defaults"],
+  "browserslist": [
+    "> 0.5% in DE, last 3 versions, Firefox ESR, not dead and fully supports es6-module",
+    "maintained node versions",
+  ],
 }
 ```
 
