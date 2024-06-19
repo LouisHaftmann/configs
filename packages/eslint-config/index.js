@@ -100,6 +100,8 @@ export function eslintConfig(
         'antfu/top-level-function': 'error',
 
         'yoda': ['error', 'never', { exceptRange: true }],
+
+        'github/unescaped-html-literal': 'off',
       },
     })
     .append({
