@@ -56,7 +56,17 @@ export function eslintConfig(
   })
     .prepend(github)
     .append(nuxt ? nuxtRules : [])
-    .append(unicorn && eslintPluginUnicorn.configs['flat/recommended'])
+    .append(
+      (async () => {
+        if (!unicorn) return
+
+        /** @type import('eslint').Linter.FlatConfig */
+        const unicornConfig = eslintPluginUnicorn.configs['flat/recommended']
+        delete unicornConfig.plugins
+
+        return unicornConfig
+      })(),
+    )
     .append({
       name: 'falcondev/rules',
       rules: {
