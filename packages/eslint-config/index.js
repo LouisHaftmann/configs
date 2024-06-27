@@ -2,6 +2,7 @@ import antfu from '@antfu/eslint-config'
 import { FlatCompat } from '@eslint/eslintrc'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginCompat from 'eslint-plugin-compat'
+import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 
 import github from './github.js'
 import nuxtRules from './nuxt.js'
@@ -12,7 +13,12 @@ const compat = new FlatCompat()
 
 /** @type {import('./index.d.ts').eslintConfig} */
 export function eslintConfig(
-  { nuxt, tsconfigPath, configs } = { nuxt: false, tsconfigPath: undefined, configs: undefined },
+  { nuxt, tsconfigPath, unicorn, configs } = {
+    nuxt: false,
+    tsconfigPath: undefined,
+    unicorn: false,
+    configs: undefined,
+  },
 ) {
   return antfu({
     stylistic: false,
@@ -50,6 +56,7 @@ export function eslintConfig(
   })
     .prepend(github)
     .append(nuxt ? nuxtRules : [])
+    .append(unicorn && eslintPluginUnicorn.configs['flat/recommended'])
     .append({
       name: 'falcondev/rules',
       rules: {
