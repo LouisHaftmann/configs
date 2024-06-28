@@ -49,32 +49,37 @@ export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, conf
   })
     .prepend(github)
     .append(nuxt ? nuxtRules : [])
-    .append(
-      (async () => {
-        if (!unicorn) return
-
-        /** @type import('eslint').Linter.FlatConfig */
-        const unicornConfig = eslintPluginUnicorn.configs['flat/recommended']
-        delete unicornConfig.plugins
-
-        return unicornConfig
-      })(),
-    )
-    .append({
-      name: 'falcondev/unicorn/rules',
-      rules: {
-        'unicorn/filename-case': [
-          'error',
-          {
-            cases: {
-              kebabCase: true,
-              pascalCase: true,
-            },
-            ignore: [/^README\./],
-          },
-        ],
-      },
+    .override('antfu/unicorn/rules', (config) => {
+      if (unicorn) delete config.plugins
+      return config
     })
+    .insertBefore('antfu/unicorn/rules', unicorn && eslintPluginUnicorn.configs['flat/recommended'])
+    .append(
+      unicorn && [
+        {
+          name: 'falcondev/unicorn/rules',
+          rules: {
+            'unicorn/filename-case': [
+              'error',
+              {
+                cases: {
+                  kebabCase: true,
+                  pascalCase: true,
+                },
+                ignore: [/^README\./],
+              },
+            ],
+          },
+        },
+        {
+          name: 'falcondev/unicorn/ignore',
+          files: ['.github/**/*'],
+          rules: {
+            'unicorn/filename-case': 'off',
+          },
+        },
+      ],
+    )
     .append({
       name: 'falcondev/rules',
       rules: {
