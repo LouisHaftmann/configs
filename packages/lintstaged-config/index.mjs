@@ -1,5 +1,5 @@
 /** @param {string} [runInPackage] */
-export default (runInPackage) => {
+export default function lintstagedConfig(runInPackage) {
   const pnpmExec = runInPackage ? `pnpm --filter ${runInPackage} exec ` : ''
 
   return {

@@ -12,14 +12,7 @@ delete eslintConfigPrettier.rules['vue/html-self-closing']
 const compat = new FlatCompat()
 
 /** @type {import('./index.d.ts').eslintConfig} */
-export function eslintConfig(
-  { nuxt, tsconfigPath, unicorn, configs } = {
-    nuxt: false,
-    tsconfigPath: undefined,
-    unicorn: false,
-    configs: undefined,
-  },
-) {
+export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, configs }) {
   return antfu({
     stylistic: false,
 
@@ -67,6 +60,21 @@ export function eslintConfig(
         return unicornConfig
       })(),
     )
+    .append({
+      name: 'falcondev/unicorn/rules',
+      rules: {
+        'unicorn/filename-case': [
+          'error',
+          {
+            cases: {
+              kebabCase: true,
+              pascalCase: true,
+            },
+            ignore: [/^README\./],
+          },
+        ],
+      },
+    })
     .append({
       name: 'falcondev/rules',
       rules: {

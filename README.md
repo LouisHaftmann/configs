@@ -69,13 +69,14 @@ See [browserslist/browserslist](https://github.com/browserslist/browserslist) fo
 **`prettier.config.js`:**
 
 ```js
-import config from '@louishaftmann/prettier-config'
-export default config
+export { default } from '@louishaftmann/prettier-config'
 ```
 
 ### commitlint
 
 **`commitlint.config.cjs`:**
+
+<!-- eslint-disable unicorn/prefer-module -->
 
 ```js
 module.exports = {

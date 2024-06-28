@@ -22,6 +22,11 @@
     "rimraf": "^5.0.7",
     "typescript": "^5.4.5"
   },
+  "pnpm": {
+    "overrides": {
+      "eslint-plugin-unicorn": "^54.0.0"
+    }
+  },
   "changelogithub": {
     "extends": "gh:falcondev-it/configs/changelogithub"
   }
