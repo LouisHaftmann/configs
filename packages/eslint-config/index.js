@@ -78,7 +78,7 @@ export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, conf
         },
         {
           name: 'falcondev/unicorn/ignore',
-          files: ['.github/**/*', 'prisma/migrations/**/*', 'db/migrations/meta/**/*'],
+          files: ['.github/**/*', '**/prisma/migrations/**/*', '**/db/migrations/meta/**/*'],
           rules: {
             'unicorn/filename-case': 'off',
           },
