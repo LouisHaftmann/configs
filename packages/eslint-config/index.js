@@ -69,11 +69,15 @@ export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, conf
                 ignore: [/^README\./],
               },
             ],
+            'unicorn/prevent-abbreviations': 'off',
+            'unicorn/no-null': 'off',
+            'unicorn/no-array-callback-reference': 'off',
+            'unicorn/prefer-ternary': 'off',
           },
         },
         {
           name: 'falcondev/unicorn/ignore',
-          files: ['.github/**/*'],
+          files: ['.github/**/*', 'prisma/migrations/**/*'],
           rules: {
             'unicorn/filename-case': 'off',
           },
