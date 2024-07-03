@@ -62,10 +62,7 @@ export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, conf
             'unicorn/filename-case': [
               'error',
               {
-                cases: {
-                  kebabCase: true,
-                  pascalCase: true,
-                },
+                case: 'kebabCase',
                 ignore: [/^README\./],
               },
             ],
@@ -74,6 +71,20 @@ export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, conf
             'unicorn/no-array-callback-reference': 'off',
             'unicorn/prefer-ternary': 'off',
             'unicorn/catch-error-name': ['error', { name: 'err' }],
+          },
+        },
+        {
+          name: 'falcondev/unicorn/overrides',
+          files: ['**/composables/**/*'],
+          rules: {
+            'unicorn/filename-case': ['error', { case: 'camelCase' }],
+          },
+        },
+        {
+          name: 'falcondev/unicorn/overrides',
+          files: ['**/components/**/*'],
+          rules: {
+            'unicorn/filename-case': ['error', { case: 'pascalCase' }],
           },
         },
         {
