@@ -21,6 +21,11 @@ export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, conf
     },
 
     vue: {
+      sfcBlocks: {
+        blocks: {
+          styles: false
+        }
+      },
       overrides: {
         // force <script lang="ts">
         'vue/block-lang': ['error', { script: { lang: 'ts' } }],
