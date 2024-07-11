@@ -76,6 +76,7 @@ export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, conf
             'unicorn/no-array-callback-reference': 'off',
             'unicorn/prefer-ternary': 'off',
             'unicorn/catch-error-name': ['error', { name: 'err' }],
+            'unicorn/no-abusive-eslint-disable': 'off',
           },
         },
         {
