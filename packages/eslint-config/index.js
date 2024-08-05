@@ -75,6 +75,7 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
           'unicorn/prefer-ternary': 'off',
           'unicorn/catch-error-name': ['error', { name: 'err' }],
           'unicorn/no-abusive-eslint-disable': 'off',
+          'unicorn/no-useless-undefined': ['error', { checkArrowFunctionBody: false }],
         },
       },
       {
