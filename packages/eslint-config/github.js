@@ -1,3 +1,4 @@
+import { fixupPluginRules } from '@eslint/compat'
 import { FlatCompat } from '@eslint/eslintrc'
 
 const compat = new FlatCompat()
@@ -21,13 +22,14 @@ const github = compat.extends('plugin:github/recommended').map((configItem, inde
     delete configItem.plugins['eslint-comments']
     delete configItem.plugins.import
     delete configItem.plugins.prettier
+    configItem.plugins.github = fixupPluginRules(configItem.plugins.github)
   }
 
   configItem.name = `github/${index}`
   return configItem
 })
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 export default [
   ...github,
   {

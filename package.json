@@ -7,20 +7,18 @@
   "author": "Louis Haftmann",
   "license": "MIT",
   "scripts": {
-    "lint": "pnpm -r run stub && eslint .",
+    "lint": "eslint .",
     "test": "pnpm -r run test",
     "build": "pnpm -r run build",
-    "prepare": "pnpm -r run stub",
     "release": "bumpp -r && pnpm run publish",
     "publish": "pnpm -r publish --filter=!@louishaftmann/config-monorepo --no-git-checks --access public"
   },
   "devDependencies": {
     "@louishaftmann/eslint-config": "workspace:*",
     "@louishaftmann/prettier-config": "workspace:*",
-    "bumpp": "^9.4.1",
-    "eslint": "^8.57.0",
-    "rimraf": "^5.0.7",
-    "typescript": "^5.4.5"
+    "bumpp": "^9.4.2",
+    "eslint": "^9.8.0",
+    "typescript": "^5.5.4"
   },
   "changelogithub": {
     "extends": "gh:falcondev-it/configs/changelogithub"

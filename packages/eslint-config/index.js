@@ -1,18 +1,17 @@
 import antfu from '@antfu/eslint-config'
-import { FlatCompat } from '@eslint/eslintrc'
+import shopifyEslintPlugin from '@shopify/eslint-plugin'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import eslintPluginCompat from 'eslint-plugin-compat'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
+import { loadPackageJSON } from 'local-pkg'
 
 import github from './github.js'
 import nuxtRules from './nuxt.js'
 
 delete eslintConfigPrettier.rules['vue/html-self-closing']
 
-const compat = new FlatCompat()
-
 /** @type {import('./index.d.ts').eslintConfig} */
-export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, configs }) {
+export function eslintConfig({ nuxt = false, tsconfigPath }) {
   return antfu({
     stylistic: false,
 
@@ -23,8 +22,8 @@ export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, conf
     vue: {
       sfcBlocks: {
         blocks: {
-          styles: false
-        }
+          styles: false,
+        },
       },
       overrides: {
         // force <script lang="ts">
@@ -55,53 +54,50 @@ export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, conf
     .prepend(github)
     .append(nuxt ? nuxtRules : [])
     .override('antfu/unicorn/rules', (config) => {
-      if (unicorn) delete config.plugins
+      delete config.plugins
       return config
     })
-    .insertBefore('antfu/unicorn/rules', unicorn && eslintPluginUnicorn.configs['flat/recommended'])
-    .append(
-      unicorn && [
-        {
-          name: 'falcondev/unicorn/rules',
-          rules: {
-            'unicorn/filename-case': [
-              'error',
-              {
-                case: 'kebabCase',
-                ignore: [/^README\./],
-              },
-            ],
-            'unicorn/prevent-abbreviations': 'off',
-            'unicorn/no-null': 'off',
-            'unicorn/no-array-callback-reference': 'off',
-            'unicorn/prefer-ternary': 'off',
-            'unicorn/catch-error-name': ['error', { name: 'err' }],
-            'unicorn/no-abusive-eslint-disable': 'off',
-          },
+    .insertBefore('antfu/unicorn/rules', eslintPluginUnicorn.configs['flat/recommended'])
+    .append([
+      {
+        name: 'falcondev/unicorn/rules',
+        rules: {
+          'unicorn/filename-case': [
+            'error',
+            {
+              case: 'kebabCase',
+              ignore: [/^README\./],
+            },
+          ],
+          'unicorn/prevent-abbreviations': 'off',
+          'unicorn/no-null': 'off',
+          'unicorn/no-array-callback-reference': 'off',
+          'unicorn/prefer-ternary': 'off',
+          'unicorn/catch-error-name': ['error', { name: 'err' }],
+          'unicorn/no-abusive-eslint-disable': 'off',
         },
-        {
-          name: 'falcondev/unicorn/overrides',
-          files: ['**/composables/**/*'],
-          rules: {
-            'unicorn/filename-case': ['error', { case: 'camelCase' }],
-          },
-        },
-        {
-          name: 'falcondev/unicorn/overrides',
-          files: ['**/components/**/*'],
-          rules: {
-            'unicorn/filename-case': ['error', { case: 'pascalCase' }],
-          },
-        },
-        {
-          name: 'falcondev/unicorn/ignore',
-          files: ['.github/**/*', '**/prisma/migrations/**/*', '**/db/migrations/meta/**/*'],
-          rules: {
-            'unicorn/filename-case': 'off',
-          },
-        },
-      ],
-    )
+      },
+      {
+        name: 'falcondev/unicorn/overrides',
+        files: ['**/composables/**/*'],
+        rules: { 'unicorn/filename-case': ['error', { case: 'camelCase' }] },
+      },
+      {
+        name: 'falcondev/unicorn/overrides',
+        files: ['**/components/**/*'],
+        rules: { 'unicorn/filename-case': ['error', { case: 'pascalCase' }] },
+      },
+      {
+        name: 'falcondev/unicorn/overrides',
+        files: [String.raw`**/pages/**/*\[*\]*.vue`],
+        rules: { 'unicorn/filename-case': 'off' },
+      },
+      {
+        name: 'falcondev/unicorn/ignore',
+        files: ['.github/**/*', '**/prisma/migrations/**/*', '**/db/migrations/meta/**/*'],
+        rules: { 'unicorn/filename-case': 'off' },
+      },
+    ])
     .append({
       name: 'falcondev/rules',
       rules: {
@@ -158,9 +154,11 @@ export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, conf
     })
     .append({
       name: 'falcondev/shopify',
-      ...compat.plugins('@shopify/eslint-plugin')[0],
+      plugins: { '@shopify': shopifyEslintPlugin },
       rules: {
         '@shopify/prefer-early-return': 'error',
+        '@shopify/typescript-prefer-pascal-case-enums': 'error',
+        '@shopify/typescript-prefer-singular-enums': 'error',
       },
     })
     .append(
@@ -175,8 +173,14 @@ export function eslintConfig({ nuxt = false, tsconfigPath, unicorn = false, conf
         rules: { 'yaml/no-empty-mapping-value': 'off' },
       },
     )
-    .append(eslintPluginCompat.configs['flat/recommended'])
-    .append(configs ?? [])
+    .append(
+      (async () => {
+        const packageJSON = await loadPackageJSON()
+        if (!('browserslist' in packageJSON)) return
+
+        return eslintPluginCompat.configs['flat/recommended']
+      })(),
+    )
     .append({
       name: 'prettier/disables',
       ...eslintConfigPrettier,
