@@ -48,7 +48,7 @@ export default [
       'github/no-dataset': 'error',
       'github/no-innerText': 'error',
       'github/no-inner-html': 'error',
-      'github/unescaped-html-literal': 'error',
+      // 'github/unescaped-html-literal': 'error',
       'github/no-useless-passive': 'error',
       'github/require-passive-events': 'error',
       'github/prefer-observers': 'error',

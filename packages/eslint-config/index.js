@@ -152,8 +152,7 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
         'antfu/top-level-function': 'error',
 
         'yoda': ['error', 'never', { exceptRange: true }],
-
-        'github/unescaped-html-literal': 'off',
+        'no-sequences': 'off',
       },
     })
     .append({
