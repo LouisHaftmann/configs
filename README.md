@@ -36,7 +36,7 @@ const compat = new FlatCompat()
 
 export default eslintConfig({
   nuxt: true,
-  tsconfigPath: ['./tsconfig.json', './server/tsconfig.json'],
+  tsconfigPath: './tsconfig.json',
 })
   .append(compat.extends('plugin:@tanstack/eslint-plugin-query/recommended'))
   .append({
