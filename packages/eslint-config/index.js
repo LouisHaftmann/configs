@@ -1,3 +1,5 @@
+// @ts-check
+
 import antfu from '@antfu/eslint-config'
 import shopifyEslintPlugin from '@shopify/eslint-plugin'
 import eslintConfigPrettier from 'eslint-config-prettier'
@@ -79,6 +81,8 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
             'error',
             { checkArrowFunctionBody: false, checkArguments: false },
           ],
+          'unicorn/prefer-global-this': 'off',
+          'unicorn/prefer-math-min-max': 'off',
         },
       },
       {
@@ -119,7 +123,8 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
 
         'jsonc/indent': 'off',
 
-        'import/order': [
+        // handled by antfu/eslint-config v3
+        /* 'import/order': [
           'warn',
           {
             'groups': [
@@ -140,16 +145,17 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
             ],
             'newlines-between': 'always',
             'alphabetize': {
-              order: 'asc' /* sort in ascending order. Options: ['ignore', 'asc', 'desc'] */,
+              order: 'asc',
               caseInsensitive: false,
             },
           },
-        ],
+        ], */
 
         // prefer `test` over `it` because it makes the test name more readable (no `should`)
         'test/consistent-test-it': ['error', { fn: 'test', withinDescribe: 'test' }],
 
         'antfu/top-level-function': 'error',
+        'antfu/no-top-level-await': 'off',
 
         'yoda': ['error', 'never', { exceptRange: true }],
         'no-sequences': 'off',

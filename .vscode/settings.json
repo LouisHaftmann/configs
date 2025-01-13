@@ -1,5 +1,5 @@
 {
-  "eslint.experimental.useFlatConfig": true,
+  "eslint.useFlatConfig": true,
   "references.preferredLocation": "peek",
   "eslint.validate": [
     "javascript",
