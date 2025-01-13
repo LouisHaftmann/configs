@@ -1,7 +1,7 @@
 {
   "name": "@louishaftmann/config-monorepo",
   "type": "module",
-  "version": "4.0.3",
+  "version": "4.1.0",
   "private": true,
   "author": "Louis Haftmann",
   "license": "MIT",
