@@ -19,8 +19,8 @@
   "devDependencies": {
     "@louishaftmann/eslint-config": "workspace:*",
     "@louishaftmann/prettier-config": "workspace:*",
-    "bumpp": "^9.10.0",
-    "eslint": "^9.18.0",
+    "bumpp": "^10.0.1",
+    "eslint": "^9.19.0",
     "typescript": "^5.7.3"
   },
   "changelogithub": {
