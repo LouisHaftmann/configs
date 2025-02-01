@@ -182,6 +182,29 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
         rules: { 'yaml/no-empty-mapping-value': 'off' },
       },
     )
+    .append({
+      name: 'falcondev/react-native',
+      files: ['*.ts', '*.tsx'],
+      rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          paths: [
+            {
+              name: 'react-native',
+              importNames: ['SafeAreaView'],
+              message: 'Please use `react-native-safe-area-context` instead.',
+            },
+            {
+              name: 'react-native',
+              importNames: ['KeyboardAvoidingView'],
+              message: 'Please use `react-native-keyboard-controller` instead.',
+            },
+          ],
+        },
+      ],
+      }
+    })
     .append(
       (async () => {
         const packageJSON = await loadPackageJSON()
