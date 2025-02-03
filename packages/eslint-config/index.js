@@ -196,6 +196,12 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
               message: 'Please use `react-native-safe-area-context` instead.',
             },
             {
+              name: 'react-native-safe-area-context',
+              importNames: ['SafeAreaView'],
+              message:
+                'Please use `useSafeAreaInsets` instead. See https://github.com/react-navigation/react-navigation/issues/11285',
+            },
+            {
               name: 'react-native',
               importNames: ['KeyboardAvoidingView'],
               message: 'Please use `react-native-keyboard-controller` instead.',
