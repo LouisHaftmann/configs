@@ -18,21 +18,21 @@
     "maintained node versions"
   ],
   "dependencies": {
-    "@antfu/eslint-config": "^4.1.0",
-    "@eslint/compat": "^1.2.5",
-    "@eslint/eslintrc": "^3.2.0",
-    "@nuxt/eslint-config": "^0.7.5",
-    "@shopify/eslint-plugin": "^46.0.0",
-    "eslint-config-prettier": "^10.0.1",
+    "@antfu/eslint-config": "^4.8.1",
+    "@eslint/compat": "^1.2.7",
+    "@eslint/eslintrc": "^3.3.0",
+    "@nuxt/eslint-config": "^1.2.0",
+    "@shopify/eslint-plugin": "^47.0.1",
+    "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-compat": "^6.0.2",
-    "eslint-plugin-github": "^5.1.5",
-    "eslint-plugin-unicorn": "^56.0.1",
-    "local-pkg": "^1.0.0"
+    "eslint-plugin-github": "^5.1.8",
+    "eslint-plugin-unicorn": "^57.0.0",
+    "local-pkg": "^1.1.1"
   },
   "devDependencies": {
     "@types/eslint": "^9.6.1",
     "@types/eslint-config-prettier": "^6.11.3",
-    "@types/eslint__eslintrc": "^2.1.2",
-    "eslint": "^9.19.0"
+    "@types/eslint__eslintrc": "^3.3.0",
+    "eslint": "^9.22.0"
   }
 }

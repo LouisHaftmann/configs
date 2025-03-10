@@ -5,4 +5,5 @@ declare function eslintConfig(config: {
   tsconfigPath?: string
 }): ReturnType<typeof antfu>
 
-export { eslintConfig as default, eslintConfig }
+export default eslintConfig
+export { eslintConfig }
