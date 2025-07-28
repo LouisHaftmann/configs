@@ -1,37 +1,20 @@
-import { fixupPluginRules } from '@eslint/compat'
-import { FlatCompat } from '@eslint/eslintrc'
-
-const compat = new FlatCompat()
-
-const REMOVE_RULES = ['import/', 'prettier/', 'eslint-comments/', 'camelcase']
-
-const github = compat.extends('plugin:github/recommended').map((configItem, index) => {
-  if (configItem.rules) {
-    for (const rule of Object.keys(configItem.rules)) {
-      if (REMOVE_RULES.some((r) => rule.startsWith(r))) {
-        delete configItem.rules[rule]
-      }
-    }
-  }
-
-  if (configItem.settings) {
-    delete configItem.settings['import/resolver']
-  }
-
-  if (configItem.plugins) {
-    delete configItem.plugins['eslint-comments']
-    delete configItem.plugins.import
-    delete configItem.plugins.prettier
-    configItem.plugins.github = fixupPluginRules(configItem.plugins.github)
-  }
-
-  configItem.name = `github/${index}`
-  return configItem
-})
+import github from 'eslint-plugin-github'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  ...github,
+  {
+    name: 'github',
+    plugins: {
+      github: github.getFlatConfigs().recommended.plugins.github,
+    },
+    rules: {
+      ...Object.fromEntries(
+        Object.entries(github.getFlatConfigs().recommended).filter(([rule]) =>
+          rule.startsWith('github/'),
+        ),
+      ),
+    },
+  },
   {
     name: 'falcondev/github',
     rules: {
