@@ -7,19 +7,22 @@ import eslintPluginCompat from 'eslint-plugin-compat'
 import eslintPluginUnicorn from 'eslint-plugin-unicorn'
 import { loadPackageJSON } from 'local-pkg'
 
+import expoRules from './expo.js'
 import github from './github.js'
 import nuxtRules from './nuxt.js'
 
 delete eslintConfigPrettier.rules['vue/html-self-closing']
 
 /** @type {import('./index.d.ts').eslintConfig} */
-export function eslintConfig({ nuxt = false, tsconfigPath }) {
+export function eslintConfig({ nuxt = false, tsconfigPath, expo = false }) {
   return antfu({
     stylistic: false,
 
     typescript: {
       tsconfigPath,
     },
+
+    react: expo,
 
     vue: {
       sfcBlocks: {
@@ -29,7 +32,7 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
       },
       overrides: {
         // force <script lang="ts">
-        'vue/block-lang': ['error', { script: { lang: 'ts' } }],
+        'vue/block-lang': ['error', { script: { lang: ['ts', 'tsx'] } }],
         // force @click="handler()"
         'vue/v-on-handler-style': ['error', 'inline-function'],
 
@@ -60,6 +63,12 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
       return config
     })
     .insertBefore('antfu/unicorn/rules', eslintPluginUnicorn.configs['flat/recommended'])
+    .append({
+      files: ['**/*.tsx'],
+      rules: {
+        'ts/promise-function-async': 'off',
+      },
+    })
     .append([
       {
         name: 'falcondev/unicorn/rules',
@@ -83,16 +92,17 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
           ],
           'unicorn/prefer-global-this': 'off',
           'unicorn/prefer-math-min-max': 'off',
+          'unicorn/require-module-specifiers': 'off',
         },
       },
       {
         name: 'falcondev/unicorn/overrides',
-        files: ['**/composables/**/*'],
+        files: ['**/@(composables|hooks)/**/*'],
         rules: { 'unicorn/filename-case': ['error', { case: 'camelCase' }] },
       },
       {
         name: 'falcondev/unicorn/overrides',
-        files: ['**/components/**/*'],
+        files: ['**/@(components|providers)/**/*'],
         rules: { 'unicorn/filename-case': ['error', { case: 'pascalCase' }] },
       },
       {
@@ -186,30 +196,30 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
       name: 'falcondev/react-native',
       files: ['*.ts', '*.tsx'],
       rules: {
-      'no-restricted-imports': [
-        'error',
-        {
-          paths: [
-            {
-              name: 'react-native',
-              importNames: ['SafeAreaView'],
-              message: 'Please use `react-native-safe-area-context` instead.',
-            },
-            {
-              name: 'react-native-safe-area-context',
-              importNames: ['SafeAreaView'],
-              message:
-                'Please use `useSafeAreaInsets` instead. See https://github.com/react-navigation/react-navigation/issues/11285',
-            },
-            {
-              name: 'react-native',
-              importNames: ['KeyboardAvoidingView'],
-              message: 'Please use `react-native-keyboard-controller` instead.',
-            },
-          ],
-        },
-      ],
-      }
+        'no-restricted-imports': [
+          'error',
+          {
+            paths: [
+              {
+                name: 'react-native',
+                importNames: ['SafeAreaView'],
+                message: 'Please use `react-native-safe-area-context` instead.',
+              },
+              {
+                name: 'react-native-safe-area-context',
+                importNames: ['SafeAreaView'],
+                message:
+                  'Please use `useSafeAreaInsets` instead. See https://github.com/react-navigation/react-navigation/issues/11285',
+              },
+              {
+                name: 'react-native',
+                importNames: ['KeyboardAvoidingView'],
+                message: 'Please use `react-native-keyboard-controller` instead.',
+              },
+            ],
+          },
+        ],
+      },
     })
     .append(
       (async () => {
@@ -223,6 +233,7 @@ export function eslintConfig({ nuxt = false, tsconfigPath }) {
       name: 'prettier/disables',
       ...eslintConfigPrettier,
     })
+    .append(expo ? expoRules : [])
 }
 
 export default eslintConfig
