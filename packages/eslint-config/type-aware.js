@@ -12,7 +12,10 @@ export default function typeAwareConfig(tsconfigPath) {
       languageOptions: {
         /** @type {any} */ parser: tsESLintParserForExtraFiles,
         parserOptions: {
-          project: tsconfigPath,
+          projectService: {
+            allowDefaultProject: ['./*.js'],
+            defaultProject: tsconfigPath,
+          },
           // extraFileExtensions: ['.vue'],
         },
       },
@@ -28,7 +31,10 @@ export default function typeAwareConfig(tsconfigPath) {
           // parser: {
           //   ts: tsESLintParserForExtraFiles
           // }
-          project: tsconfigPath,
+          projectService: {
+            allowDefaultProject: ['./*.js'],
+            defaultProject: tsconfigPath,
+          },
         },
       },
     },
